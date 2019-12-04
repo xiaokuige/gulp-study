@@ -1,0 +1,63 @@
+.box {
+  color: #fff;
+}
+.box1 {
+  color: #fff;
+}
+.box2 {
+  width: 100px;
+  height: 200px;
+}
+.box3 {
+  width: 100px;
+  height: 300px;
+  color: red;
+}
+.root {
+  width: 400px;
+  height: 400px;
+}
+.root .header {
+  width: 100%;
+}
+.root .header .nav {
+  height: 100px;
+  width: 100%;
+}
+.root .header .nav ul li {
+  font-size: 30px;
+}
+.root .header .nav ul li a {
+  color: red;
+}
+.root .header .nav ul li a:hover {
+  color: green;
+}
+.box4 {
+  width: 300px;
+  height: 50px;
+  color: #444444;
+  background: #222222;
+}
+/*
+  35*45
+*/
+.myrem {
+  width: 0.7rem;
+  height: 0.9rem;
+  background: #000;
+}
+.box5 {
+  flex: 4;
+}
+.box6 {
+  color: red;
+}
+.box7,
+.box8 {
+  width: 100px;
+  height: 100px;
+}
+.box8 {
+  font-size: 15px;
+}

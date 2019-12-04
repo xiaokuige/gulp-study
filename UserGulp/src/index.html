@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你的运势</title>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/lib/swiper.min.css"/>
+    <link rel="stylesheet" href="css/app/init.css"/>
+    <link rel="stylesheet" href="css/lib/animate.min.css"/>
+    <link rel="stylesheet" href="css/app/index.css">
+    <script src="js/lib/jquery-2.2.3.js"></script>
+    <script src="js/lib/swiper.min.js"></script>
+    <script src="js/lib/swiper.animate1.0.2.min.js"></script>
+    <script src="js/app/names.js"></script>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        if(clientWidth>=640){
+                            docEl.style.fontSize = '100px';
+                        }else{
+                            docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                        }
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+</head>
+<body>
+<!--<div class="t-nav">-->
+    <!--<a class="t_icon t_back" onclick="open_fg_goBack();" href="javascript:void(0);"></a>-->
+    <!--<a class=" t_icon t_refresh_1" onclick="refresh_window();" href="javascript:void(0);">-->
+    <!--</a> 大美星球 -->
+<!--</div>-->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!-- page one -->
+        <div class="swiper-slide">
+            <div class="pageone">
+                <div swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s" class="luck2017 ani">
+                    <img src="images/2017luck.png" alt="">
+                </div>
+                <div class="luckborder">
+                    <img class="light" src="images/light.png" alt="">
+                    <img class="chicken" src="images/chicken.png" alt="">
+                    <img class="eye" src="images/eye.gif" alt="">
+                    <div class="ele">
+                        <img class="egg" src="images/egg.png" alt="">
+                        <img class="cloudbig" src="images/cloudbig.png" alt="">
+                        <img class="cloudsmall" src="images/cloudsmall.png" alt="">
+                    </div>
+
+                </div>
+                <div class="year2017">
+                    <img class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s" src="images/2017.png" alt="">
+                </div>
+                <div class="next">
+                    <img src="images/next.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- page two -->
+        <div class="swiper-slide">
+            <div class="pagetwo">
+                <img class="bg2" src="images/bg2.png" alt="">
+                <img class="yourname" src="images/yourname.png" alt="">
+                <img class="cloud2" src="images/cloud2.png" alt="">
+                <img class="p22017" src="images/2017-2.png" alt="">
+                <div class="inputname">
+                    <div class="mynameinput">
+                        <input  type="text" placeholder="请输入你的名字">
+                    </div>
+                    <img class="namebutton next" src="images/btnno.png" alt="">
+                </div>
+            </div>
+            <div class="loading">
+                <img src="images/loading.png" alt=""/>
+            </div>
+        </div>
+        <!-- page three -->
+        <div class="swiper-slide">
+            <div class="pagethree">
+                <img class="bg3" src="images/bg3-3.png" alt="">
+                <img class="bg3-2017" src="images/2017-3.png" alt="">
+                <img class="share" src="images/share.png" alt="">
+                <div class="nametime">
+                    <p class="yourname">张大炮</p>
+                    <img class="timeimg" src="images/yunshi.png" alt="">
+                </div>
+                <div class="c1">
+                    <p class="c1text">夜夜笙箫</p>
+                </div>
+                <div class="c2">
+                    <p class="c2text">左拥右抱</p>
+                </div>
+                <div class="myluck">
+                    <p class="lucktext">恋爱运</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'vertical',
+        nextButton:".next",
+        speed:300,
+        onInit:function(sp){
+            swiperAnimateCache(sp); //隐藏动画元素
+            swiperAnimate(sp); //初始化完成开始动画
+        },
+        onSlideChangeEnd: function(sp){
+            swiperAnimate(sp); //每个slide切换结束时也运行当前slide动画
+        }
+    });
+</script>
+<script>
+    function onPageFinished() {
+        var platform = $('#platform').val();
+        if (platform == "ios") {
+            window.location.href = "ios://window.fengge.callTerminal?action=closePullRefresh";
+        }
+        if (platform == "android") {
+            window.fengge.callTerminal('closePullRefresh', '');
+        }
+    }
+    onPageFinished();
+</script>
+
+</body>
+</html>

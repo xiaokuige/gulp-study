@@ -1,0 +1,85 @@
+@color:#fff;
+
+.box{
+  color: @color;
+}
+.box1{
+  color: @color;
+}
+
+.size(@width:100px;@height:200px){
+  width:@width;
+  height:@height;
+}
+
+.box2{
+  .size();
+}
+
+.box3{
+  .size(100px,300px);
+  color: red;
+}
+
+.root{
+  .size(400px,400px);
+  @myWidth:100%;
+  .header{
+    width: @myWidth;
+    .nav{
+      height: 100px;
+      width: @myWidth;
+      ul{
+        li{
+          font-size: 30px;
+          a{
+            color: red;
+            &:hover{
+              color: green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.box4{
+  width:200px + 100px;
+  height: 100px - 50px;
+  color: #222 * 2;
+  background: #444 / 2;
+}
+
+/*
+  35*45
+*/
+.myrem{
+  width: 35 / 50rem;
+  height: 45 / 50rem;
+  background: #000;
+}
+
+.box5{
+  flex:floor(4.4); // 向下取整
+}
+
+.num(@value) when(@value >100){
+  color: red;
+}
+.num(@value) when(@value <= 100){
+  color: green;
+}
+
+.box6{
+  .num(999);
+}
+
+.box7{
+  width: 100px;
+  height: 100px;
+}
+.box8{
+  &:extend(.box7);
+  font-size: 15px;
+}
